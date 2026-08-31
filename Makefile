@@ -25,4 +25,4 @@ clean:
 	docker compose down -v
 
 dev:
-	uvicorn autonoma.api.main:app --reload --host 0.0.0.0 --port 8000
+	uvicorn autonoma.serving.app:app --reload --host 0.0.0.0 --port 8000

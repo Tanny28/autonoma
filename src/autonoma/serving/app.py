@@ -1,13 +1,14 @@
 import time
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, Response
-from fastapi.middleware.cors import CORSMiddleware
 from loguru import logger
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 
-from autonoma.api.routes import health, predict
+from autonoma import __version__
 from autonoma.core.config import settings
 from autonoma.core.logging import setup_logging
+from autonoma.serving import health, predict
 
 REQUEST_COUNT = Counter(
     "autonoma_requests_total",
@@ -20,18 +21,20 @@ REQUEST_LATENCY = Histogram(
     ["method", "endpoint"],
 )
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    setup_logging(log_level=settings.log_level, app_env=settings.app_env)
+    logger.info("AUTONOMA serving layer starting up")
+    yield
+    logger.info("AUTONOMA serving layer shutting down")
+
+
 app = FastAPI(
     title="AUTONOMA",
-    version="0.1.0",
-    description="Self-healing MLOps platform with an autonomous AI agent",
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    version=__version__,
+    description="Serving layer for the AUTONOMA self-healing MLOps platform",
+    lifespan=lifespan,
 )
 
 
@@ -41,7 +44,12 @@ async def metrics_middleware(request: Request, call_next):
     response = await call_next(request)
     latency = time.perf_counter() - start
 
-    endpoint = request.url.path
+    # Label on the route template, not the raw path: the replay harness sends
+    # tens of thousands of requests and raw paths would blow up Prometheus
+    # cardinality. Unmatched paths collapse to a single bucket.
+    route = request.scope.get("route")
+    endpoint = getattr(route, "path", "unmatched")
+
     REQUEST_COUNT.labels(
         method=request.method,
         endpoint=endpoint,
@@ -59,14 +67,3 @@ async def metrics():
 
 app.include_router(health.router)
 app.include_router(predict.router)
-
-
-@app.on_event("startup")
-async def startup():
-    setup_logging(log_level=settings.log_level, app_env=settings.app_env)
-    logger.info("AUTONOMA starting up")
-
-
-@app.on_event("shutdown")
-async def shutdown():
-    logger.info("AUTONOMA shutting down")
