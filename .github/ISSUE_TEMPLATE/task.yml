@@ -1,0 +1,31 @@
+name: Task
+description: A unit of project work tied to one objective (O1–O4)
+labels: []
+body:
+  - type: dropdown
+    id: objective
+    attributes:
+      label: Objective
+      options:
+        - O1 — degradation injection & signal extraction
+        - O2 — diagnostic agent
+        - O3 — remediation layer
+        - O4 — evaluation
+        - Infrastructure / tooling
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: What gets built, and where in src/autonoma it lives.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Concrete, checkable acceptance criteria.
+      placeholder: "- [ ] ..."
+    validations:
+      required: true

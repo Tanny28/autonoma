@@ -1,0 +1,14 @@
+# Reviewers are requested automatically for PRs touching these paths.
+# Replace @Tanny28 on a line with the owner's GitHub username once they join.
+
+*                                 @Tanny28
+
+/src/autonoma/core/               @Tanny28
+/src/autonoma/agent/              @Tanny28
+/src/autonoma/remediation/        @Tanny28
+/src/autonoma/serving/            @Tanny28
+/src/autonoma/injection/          @Tanny28
+/src/autonoma/signals/            @Tanny28
+/src/autonoma/observability/      @Tanny28
+/infra/                           @Tanny28
+/docker-compose.yml               @Tanny28
