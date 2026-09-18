@@ -4,7 +4,7 @@ from autonoma.serving.schemas import PredictRequest, PredictResponse
 
 router = APIRouter(tags=["predict"])
 
-# ponytail: constant-response stub so the replay harness (O1) can be built and
+# Constant-response stub so the replay harness (O1) can be built and
 # tested against a live endpoint before the baseline model exists. Replaced by
 # the MLflow-loaded Elec2 classifier; the response contract does not change.
 _STUB_VERSION = "stub-v0"

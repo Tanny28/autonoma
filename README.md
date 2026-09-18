@@ -2,7 +2,7 @@
 
 **Automated Root-Cause Diagnosis of Model Degradation for Self-Healing MLOps — Does LLM Reasoning Outperform Rule-Based Remediation?**
 
-[![CI](https://github.com/tanmayshinde/autonoma/actions/workflows/ci.yml/badge.svg)](https://github.com/tanmayshinde/autonoma/actions)
+[![CI](https://github.com/Tanny28/autonoma/actions/workflows/ci.yml/badge.svg)](https://github.com/Tanny28/autonoma/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://python.org)
 
@@ -47,31 +47,62 @@ The taxonomy is the heart of the project. Injection, signal extraction, agent cl
 
 The two bold rows are where existing systems get it wrong. Each class is instantiated at 3 severities × 5 seeds × 3 datasets to give a reusable labelled scenario set.
 
+### Diagnose first, then act
+
+Where existing systems go straight from "degradation detected" to "retrain", AUTONOMA inserts a diagnostic step and picks the action that matches the cause:
+
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR
+    D[Degradation detected] --> Q{Root cause?}
+    Q -->|Sudden covariate drift| R1[Retrain on recent window]
+    Q -->|Gradual covariate drift| R2[Scheduled retrain]
+    Q -->|Concept drift| R3[Retrain / re-architect]
+    Q -->|Upstream pipeline fault| N1[Rollback + repair pipeline<br/>NO retrain]
+    Q -->|Seasonal variation| N2[Suppress alert<br/>NO action]
+```
+
 ## Architecture
 
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart TB
+    subgraph L1[1 · Replay & Injection]
+        DS[(Elec2 / Airlines / UCI)] --> RP[Stream replay<br/>1 record = 1 request]
+        INJ[Degradation injector<br/>5 classes] --> RP
+        INJ -.->|ground truth<br/>cause, onset| GT[(Scenario labels)]
+    end
+
+    subgraph L2[2 · Serving]
+        API[FastAPI /predict] --> LOG[(Prediction log)]
+        LBL[Delayed labels] --> LOG
+    end
+
+    subgraph L3[3 · Signal Extraction]
+        S1[Distributional<br/>KS · PSI · χ² · ADWIN]
+        S2[Performance<br/>rolling acc / F1]
+        S3[Integrity<br/>nulls · range · staleness · schema]
+    end
+
+    subgraph L4[4 · Diagnostic Agent]
+        AG[LLM agent<br/>LangGraph + Groq] 
+        MEM[(Incident memory)] <--> AG
+    end
+
+    subgraph L5[5 · Remediation]
+        EX[Guardrailed executor<br/>retrain · rollback · recalibrate<br/>suppress · escalate]
+    end
+
+    RP --> API
+    LOG --> S1 & S2 & S3
+    S1 & S2 & S3 -->|signal bundle| AG
+    AG -->|cause + action + justification| EX
+    EX --> REG[(MLflow registry)]
+    EX --> AUD[(Decision log)]
+    REG --> API
 ```
-1  REPLAY & INJECTION      public dataset replayed one record per request;
-                           degradation injected at a known index; ground-truth
-                           (cause, onset) recorded
 
-2  SERVING                 model served via FastAPI in Docker; every request
-                           logged; true labels ingested on a delay
-
-3  SIGNAL EXTRACTION       distributional : KS, PSI, chi-square, ADWIN
-                           performance    : rolling accuracy / F1 delta
-                           integrity      : null rate, cardinality, range/unit
-                                            violation, staleness, schema order
-
-4  DIAGNOSTIC AGENT        LangGraph + Groq-hosted Llama. Input: signal bundle
-                           + incident history. Output: cause, confidence,
-                           action, justification
-
-5  REMEDIATION             retrain / rollback / recalibrate / suppress /
-                           escalate, behind validation gates and rollback
-
-   OBSERVABILITY & AUDIT   Prometheus, Grafana, PostgreSQL decision log,
-                           MLflow registry
-```
+Observability runs across every layer: Prometheus scrapes the serving API, Grafana visualises metrics and signals, and every autonomous decision is written to the PostgreSQL decision log with its justification.
 
 The **integrity signal family** is the enabling piece: it is what makes a pipeline fault separable from genuine drift. Without it, the project's central distinction cannot be measured.
 
@@ -93,6 +124,20 @@ Two falsifiable hypotheses:
 - **H2** — Prior incident context improves diagnostic accuracy and lowers MTTR on recurrence of a previously seen failure mode.
 
 Six arms, all scored on the identical scenario set:
+
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR
+    SC[(Labelled scenario set<br/>5 classes × 3 severities<br/>× 5 seeds × 3 datasets)] --> SB[Identical signal bundle]
+    SB --> A1[1 · Alert-only]
+    SB --> A2[2 · Always-retrain]
+    SB --> A3[3 · Threshold rules]
+    SB --> A4[4 · Trained classifier]
+    SB --> A5[5 · LLM agent]
+    SB --> A6[6 · LLM + incident memory]
+    A1 & A2 & A3 & A4 & A5 & A6 --> M[Nine metrics<br/>headline: harmful action rate]
+```
+
 
 | Arm | Description | Purpose |
 |---|---|---|

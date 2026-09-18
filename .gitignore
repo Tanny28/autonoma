@@ -58,5 +58,3 @@ grafana_data/
 postgres_data/
 redis_data/
 mlflow_artifacts/
-.claude/
-.pixa/
