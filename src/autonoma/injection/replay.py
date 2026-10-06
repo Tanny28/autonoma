@@ -86,9 +86,7 @@ def replay_csv(
 
                 for column, value in row.items():
                     if column is None:
-                        raise ValueError(
-                            "CSV contains an unexpected extra column"
-                        )
+                        raise ValueError("CSV contains an unexpected extra column")
 
                     if column == target_column:
                         continue
@@ -113,9 +111,7 @@ def replay_csv(
                         "record_index": record_index,
                         **result,
                     }
-                    output_handle.write(
-                        json.dumps(log_entry) + "\n"
-                    )
+                    output_handle.write(json.dumps(log_entry) + "\n")
 
                 replayed += 1
 
