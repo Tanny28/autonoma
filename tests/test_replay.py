@@ -74,10 +74,7 @@ def test_replay_skips_first_30_percent_and_preserves_order(
     assert replayed == 7
     assert len(FakeClient.calls) == 7
 
-    record_indices = [
-        call[1]["record_index"]
-        for call in FakeClient.calls
-    ]
+    record_indices = [call[1]["record_index"] for call in FakeClient.calls]
 
     assert record_indices == [3, 4, 5, 6, 7, 8, 9]
 
