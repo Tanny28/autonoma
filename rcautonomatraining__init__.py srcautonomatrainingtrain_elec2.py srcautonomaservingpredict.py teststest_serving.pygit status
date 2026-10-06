@@ -1,0 +1,89 @@
+[1mdiff --git a/src/autonoma/serving/predict.py b/src/autonoma/serving/predict.py[m
+[1mindex 7dc3a9a..56f5276 100644[m
+[1m--- a/src/autonoma/serving/predict.py[m
+[1m+++ b/src/autonoma/serving/predict.py[m
+[36m@@ -1,15 +1,40 @@[m
+[31m-from fastapi import APIRouter[m
+[32m+[m[32mimport mlflow.sklearn[m
+[32m+[m[32mimport pandas as pd[m
+[32m+[m[32mfrom fastapi import APIRouter, Request[m
+ [m
+ from autonoma.serving.schemas import PredictRequest, PredictResponse[m
+ [m
+ router = APIRouter(tags=["predict"])[m
+ [m
+[31m-# Constant-response stub so the replay harness (O1) can be built and[m
+[31m-# tested against a live endpoint before the baseline model exists. Replaced by[m
+[31m-# the MLflow-loaded Elec2 classifier; the response contract does not change.[m
+[31m-_STUB_VERSION = "stub-v0"[m
+[32m+[m[32mMODEL_NAME = "AutonomaElec2"[m
+[32m+[m[32mMODEL_ALIAS = "champion"[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef load_model():[m
+[32m+[m[32m    """Load the champion Elec2 model from the MLflow registry."""[m
+[32m+[m[32m    model_uri = f"models:/{MODEL_NAME}@{MODEL_ALIAS}"[m
+[32m+[m[32m    return mlflow.sklearn.load_model(model_uri)[m
+ [m
+ [m
+ @router.post("/predict", response_model=PredictResponse)[m
+[31m-async def predict(request: PredictRequest) -> PredictResponse:[m
+[31m-    return PredictResponse(prediction=1, confidence=0.5, model_version=_STUB_VERSION)[m
+[32m+[m[32masync def predict([m
+[32m+[m[32m    request: PredictRequest,[m
+[32m+[m[32m    http_request: Request,[m
+[32m+[m[32m) -> PredictResponse:[m
+[32m+[m[32m    model = getattr(http_request.app.state, "model", None)[m
+[32m+[m
+[32m+[m[32m    if model is None:[m
+[32m+[m[32m        model = load_model()[m
+[32m+[m[32m        http_request.app.state.model = model[m
+[32m+[m
+[32m+[m[32m    features = pd.DataFrame([request.features])[m
+[32m+[m
+[32m+[m[32m    prediction = int(model.predict(features)[0])[m
+[32m+[m[32m    probabilities = model.predict_proba(features)[0][m
+[32m+[m[32m    confidence = float(max(probabilities))[m
+[32m+[m
+[32m+[m[32m    return PredictResponse([m
+[32m+[m[32m        prediction=prediction,[m
+[32m+[m[32m        confidence=confidence,[m
+[32m+[m[32m        model_version=f"{MODEL_NAME}@{MODEL_ALIAS}",[m
+[32m+[m[32m    )[m
+[1mdiff --git a/tests/test_serving.py b/tests/test_serving.py[m
+[1mindex 6378d5f..300fcc5 100644[m
+[1m--- a/tests/test_serving.py[m
+[1m+++ b/tests/test_serving.py[m
+[36m@@ -19,16 +19,29 @@[m [mdef test_health_ready_returns_ready():[m
+     assert client.get("/health/ready").json()["status"] == "ready"[m
+ [m
+ [m
+[31m-def test_predict_stub_returns_valid_response():[m
+[32m+[m[32mdef test_predict_mlflow_model_returns_valid_response():[m
+     response = client.post([m
+         "/predict",[m
+[31m-        json={"features": {"nswprice": 0.056, "nswdemand": 0.439}, "record_index": 12},[m
+[32m+[m[32m        json={[m
+[32m+[m[32m            "features": {[m
+[32m+[m[32m                "date": 1,[m
+[32m+[m[32m                "day": "Monday",[m
+[32m+[m[32m                "period": 1,[m
+[32m+[m[32m                "nswprice": 0.056,[m
+[32m+[m[32m                "nswdemand": 6400,[m
+[32m+[m[32m                "vicprice": 0.043,[m
+[32m+[m[32m                "vicdemand": 5600,[m
+[32m+[m[32m                "transfer": 500,[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "record_index": 12,[m
+[32m+[m[32m        },[m
+     )[m
+[32m+[m
+     assert response.status_code == 200[m
+     data = response.json()[m
+     assert data["prediction"] in (0, 1)[m
+     assert 0.0 <= data["confidence"] <= 1.0[m
+[31m-    assert data["model_version"][m
+[32m+[m[32m    assert data["model_version"] == "AutonomaElec2@champion"[m
+ [m
+ [m
+ def test_metrics_label_on_route_template_not_raw_path():[m
