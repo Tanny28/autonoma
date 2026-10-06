@@ -73,51 +73,51 @@ def replay_csv(
             httpx.Client(timeout=timeout) as client,
             path.open("r", newline="", encoding="utf-8") as file,
         ):
-                reader = csv.DictReader(file)
+            reader = csv.DictReader(file)
 
-                if reader.fieldnames is None:
-                    raise ValueError("CSV file must contain a header row")
+            if reader.fieldnames is None:
+                raise ValueError("CSV file must contain a header row")
 
-                for record_index, row in enumerate(reader):
-                    if record_index < start_index:
-                        continue
+            for record_index, row in enumerate(reader):
+                if record_index < start_index:
+                    continue
 
-                    features: dict[str, float | int | str | None] = {}
+                features: dict[str, float | int | str | None] = {}
 
-                    for column, value in row.items():
-                        if column is None:
-                            raise ValueError(
-                                "CSV contains an unexpected extra column"
-                            )
-
-                        if column == target_column:
-                            continue
-
-                        features[column] = _parse_value(value or "")
-
-                    payload = {
-                        "features": features,
-                        "record_index": record_index,
-                    }
-
-                    response = client.post(
-                        endpoint_url,
-                        json=payload,
-                    )
-                    response.raise_for_status()
-
-                    result = response.json()
-
-                    if output_handle is not None:
-                        log_entry = {
-                            "record_index": record_index,
-                            **result,
-                        }
-                        output_handle.write(
-                            json.dumps(log_entry) + "\n"
+                for column, value in row.items():
+                    if column is None:
+                        raise ValueError(
+                            "CSV contains an unexpected extra column"
                         )
 
-                    replayed += 1
+                    if column == target_column:
+                        continue
+
+                    features[column] = _parse_value(value or "")
+
+                payload = {
+                    "features": features,
+                    "record_index": record_index,
+                }
+
+                response = client.post(
+                    endpoint_url,
+                    json=payload,
+                )
+                response.raise_for_status()
+
+                result = response.json()
+
+                if output_handle is not None:
+                    log_entry = {
+                        "record_index": record_index,
+                        **result,
+                    }
+                    output_handle.write(
+                        json.dumps(log_entry) + "\n"
+                    )
+
+                replayed += 1
 
     finally:
         if output_handle is not None:
