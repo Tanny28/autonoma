@@ -69,8 +69,10 @@ def replay_csv(
     replayed = 0
 
     try:
-        with httpx.Client(timeout=timeout) as client:
-            with path.open("r", newline="", encoding="utf-8") as file:
+        with (
+            httpx.Client(timeout=timeout) as client,
+            path.open("r", newline="", encoding="utf-8") as file,
+        ):
                 reader = csv.DictReader(file)
 
                 if reader.fieldnames is None:
