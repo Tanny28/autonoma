@@ -19,7 +19,19 @@ def test_health_ready_returns_ready():
     assert client.get("/health/ready").json()["status"] == "ready"
 
 
-def test_predict_mlflow_model_returns_valid_response():
+def test_predict_mlflow_model_returns_valid_response(monkeypatch):
+    class FakeModel:
+        def predict(self, features):
+            return [0]
+
+        def predict_proba(self, features):
+            return [[0.81, 0.19]]
+
+    monkeypatch.setattr(
+        "autonoma.serving.predict.load_model",
+        lambda: FakeModel(),
+    )
+
     response = client.post(
         "/predict",
         json={
