@@ -1,0 +1,31 @@
+{
+  "dataset": "Elec2 (OpenML 151)",
+  "rows": 45312,
+  "train_rows": 13593,
+  "model": "HistGradientBoostingClassifier",
+  "features": [
+    "day",
+    "period",
+    "nswprice",
+    "nswdemand",
+    "vicprice",
+    "vicdemand",
+    "transfer"
+  ],
+  "default_false_alarms_on_clean_windows": {
+    "KS p<0.01 (any feature)": 1.0,
+    "PSI>0.2 (any feature)": 1.0,
+    "Chi-square p<0.01 (day)": 1.0,
+    "Accuracy drop >5 points": 0.385,
+    "Any integrity rule": 0.065
+  },
+  "episodes": 75,
+  "calibrated_thresholds": {
+    "psi": 1.6862539489664248,
+    "accuracy_drop": -0.20450000000000002
+  },
+  "calibrated_false_alarms_on_clean_windows": {
+    "drift_detected": 0.095,
+    "any_integrity_rule": 0.065
+  }
+}
