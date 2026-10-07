@@ -1,0 +1,6 @@
+true_cause,concept_drift,no action,seasonal_variation,sudden_covariate_drift,upstream_pipeline_fault
+concept_drift,1,4,0,6,4
+gradual_covariate_drift,0,3,1,2,9
+seasonal_variation,0,4,3,1,7
+sudden_covariate_drift,0,2,2,3,8
+upstream_pipeline_fault,0,0,0,0,15
