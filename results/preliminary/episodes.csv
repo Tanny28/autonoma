@@ -1,0 +1,451 @@
+arm,episode,true_cause,severity,action,diagnosed,detected,acted_before_onset,setup
+Alert-only,sudden_covariate_drift-s1-seed0,sudden_covariate_drift,1,,,True,False,default
+Alert-only,sudden_covariate_drift-s1-seed1,sudden_covariate_drift,1,,,True,False,default
+Alert-only,sudden_covariate_drift-s1-seed2,sudden_covariate_drift,1,,,True,False,default
+Alert-only,sudden_covariate_drift-s1-seed3,sudden_covariate_drift,1,,,True,False,default
+Alert-only,sudden_covariate_drift-s1-seed4,sudden_covariate_drift,1,,,True,False,default
+Alert-only,sudden_covariate_drift-s2-seed0,sudden_covariate_drift,2,,,True,False,default
+Alert-only,sudden_covariate_drift-s2-seed1,sudden_covariate_drift,2,,,True,False,default
+Alert-only,sudden_covariate_drift-s2-seed2,sudden_covariate_drift,2,,,True,False,default
+Alert-only,sudden_covariate_drift-s2-seed3,sudden_covariate_drift,2,,,True,False,default
+Alert-only,sudden_covariate_drift-s2-seed4,sudden_covariate_drift,2,,,True,False,default
+Alert-only,sudden_covariate_drift-s3-seed0,sudden_covariate_drift,3,,,True,False,default
+Alert-only,sudden_covariate_drift-s3-seed1,sudden_covariate_drift,3,,,True,False,default
+Alert-only,sudden_covariate_drift-s3-seed2,sudden_covariate_drift,3,,,True,False,default
+Alert-only,sudden_covariate_drift-s3-seed3,sudden_covariate_drift,3,,,True,False,default
+Alert-only,sudden_covariate_drift-s3-seed4,sudden_covariate_drift,3,,,True,False,default
+Alert-only,gradual_covariate_drift-s1-seed0,gradual_covariate_drift,1,,,True,False,default
+Alert-only,gradual_covariate_drift-s1-seed1,gradual_covariate_drift,1,,,True,False,default
+Alert-only,gradual_covariate_drift-s1-seed2,gradual_covariate_drift,1,,,True,False,default
+Alert-only,gradual_covariate_drift-s1-seed3,gradual_covariate_drift,1,,,True,False,default
+Alert-only,gradual_covariate_drift-s1-seed4,gradual_covariate_drift,1,,,True,False,default
+Alert-only,gradual_covariate_drift-s2-seed0,gradual_covariate_drift,2,,,True,False,default
+Alert-only,gradual_covariate_drift-s2-seed1,gradual_covariate_drift,2,,,True,False,default
+Alert-only,gradual_covariate_drift-s2-seed2,gradual_covariate_drift,2,,,True,False,default
+Alert-only,gradual_covariate_drift-s2-seed3,gradual_covariate_drift,2,,,True,False,default
+Alert-only,gradual_covariate_drift-s2-seed4,gradual_covariate_drift,2,,,True,False,default
+Alert-only,gradual_covariate_drift-s3-seed0,gradual_covariate_drift,3,,,True,False,default
+Alert-only,gradual_covariate_drift-s3-seed1,gradual_covariate_drift,3,,,True,False,default
+Alert-only,gradual_covariate_drift-s3-seed2,gradual_covariate_drift,3,,,True,False,default
+Alert-only,gradual_covariate_drift-s3-seed3,gradual_covariate_drift,3,,,True,False,default
+Alert-only,gradual_covariate_drift-s3-seed4,gradual_covariate_drift,3,,,True,False,default
+Alert-only,concept_drift-s1-seed0,concept_drift,1,,,True,False,default
+Alert-only,concept_drift-s1-seed1,concept_drift,1,,,True,False,default
+Alert-only,concept_drift-s1-seed2,concept_drift,1,,,True,False,default
+Alert-only,concept_drift-s1-seed3,concept_drift,1,,,True,False,default
+Alert-only,concept_drift-s1-seed4,concept_drift,1,,,True,False,default
+Alert-only,concept_drift-s2-seed0,concept_drift,2,,,True,False,default
+Alert-only,concept_drift-s2-seed1,concept_drift,2,,,True,False,default
+Alert-only,concept_drift-s2-seed2,concept_drift,2,,,True,False,default
+Alert-only,concept_drift-s2-seed3,concept_drift,2,,,True,False,default
+Alert-only,concept_drift-s2-seed4,concept_drift,2,,,True,False,default
+Alert-only,concept_drift-s3-seed0,concept_drift,3,,,True,False,default
+Alert-only,concept_drift-s3-seed1,concept_drift,3,,,True,False,default
+Alert-only,concept_drift-s3-seed2,concept_drift,3,,,True,False,default
+Alert-only,concept_drift-s3-seed3,concept_drift,3,,,True,False,default
+Alert-only,concept_drift-s3-seed4,concept_drift,3,,,True,False,default
+Alert-only,upstream_pipeline_fault-s1-seed0,upstream_pipeline_fault,1,,,True,False,default
+Alert-only,upstream_pipeline_fault-s1-seed1,upstream_pipeline_fault,1,,,True,False,default
+Alert-only,upstream_pipeline_fault-s1-seed2,upstream_pipeline_fault,1,,,True,False,default
+Alert-only,upstream_pipeline_fault-s1-seed3,upstream_pipeline_fault,1,,,True,False,default
+Alert-only,upstream_pipeline_fault-s1-seed4,upstream_pipeline_fault,1,,,True,False,default
+Alert-only,upstream_pipeline_fault-s2-seed0,upstream_pipeline_fault,2,,,True,False,default
+Alert-only,upstream_pipeline_fault-s2-seed1,upstream_pipeline_fault,2,,,True,False,default
+Alert-only,upstream_pipeline_fault-s2-seed2,upstream_pipeline_fault,2,,,True,False,default
+Alert-only,upstream_pipeline_fault-s2-seed3,upstream_pipeline_fault,2,,,True,False,default
+Alert-only,upstream_pipeline_fault-s2-seed4,upstream_pipeline_fault,2,,,True,False,default
+Alert-only,upstream_pipeline_fault-s3-seed0,upstream_pipeline_fault,3,,,True,False,default
+Alert-only,upstream_pipeline_fault-s3-seed1,upstream_pipeline_fault,3,,,True,False,default
+Alert-only,upstream_pipeline_fault-s3-seed2,upstream_pipeline_fault,3,,,True,False,default
+Alert-only,upstream_pipeline_fault-s3-seed3,upstream_pipeline_fault,3,,,True,False,default
+Alert-only,upstream_pipeline_fault-s3-seed4,upstream_pipeline_fault,3,,,True,False,default
+Alert-only,seasonal_variation-s1-seed0,seasonal_variation,1,,,True,False,default
+Alert-only,seasonal_variation-s1-seed1,seasonal_variation,1,,,True,False,default
+Alert-only,seasonal_variation-s1-seed2,seasonal_variation,1,,,True,False,default
+Alert-only,seasonal_variation-s1-seed3,seasonal_variation,1,,,True,False,default
+Alert-only,seasonal_variation-s1-seed4,seasonal_variation,1,,,True,False,default
+Alert-only,seasonal_variation-s2-seed0,seasonal_variation,2,,,True,False,default
+Alert-only,seasonal_variation-s2-seed1,seasonal_variation,2,,,True,False,default
+Alert-only,seasonal_variation-s2-seed2,seasonal_variation,2,,,True,False,default
+Alert-only,seasonal_variation-s2-seed3,seasonal_variation,2,,,True,False,default
+Alert-only,seasonal_variation-s2-seed4,seasonal_variation,2,,,True,False,default
+Alert-only,seasonal_variation-s3-seed0,seasonal_variation,3,,,True,False,default
+Alert-only,seasonal_variation-s3-seed1,seasonal_variation,3,,,True,False,default
+Alert-only,seasonal_variation-s3-seed2,seasonal_variation,3,,,True,False,default
+Alert-only,seasonal_variation-s3-seed3,seasonal_variation,3,,,True,False,default
+Alert-only,seasonal_variation-s3-seed4,seasonal_variation,3,,,True,False,default
+Always-retrain,sudden_covariate_drift-s1-seed0,sudden_covariate_drift,1,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s1-seed1,sudden_covariate_drift,1,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s1-seed2,sudden_covariate_drift,1,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s1-seed3,sudden_covariate_drift,1,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s1-seed4,sudden_covariate_drift,1,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s2-seed0,sudden_covariate_drift,2,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s2-seed1,sudden_covariate_drift,2,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s2-seed2,sudden_covariate_drift,2,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s2-seed3,sudden_covariate_drift,2,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s2-seed4,sudden_covariate_drift,2,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s3-seed0,sudden_covariate_drift,3,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s3-seed1,sudden_covariate_drift,3,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s3-seed2,sudden_covariate_drift,3,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s3-seed3,sudden_covariate_drift,3,retrain,,True,True,default
+Always-retrain,sudden_covariate_drift-s3-seed4,sudden_covariate_drift,3,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s1-seed0,gradual_covariate_drift,1,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s1-seed1,gradual_covariate_drift,1,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s1-seed2,gradual_covariate_drift,1,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s1-seed3,gradual_covariate_drift,1,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s1-seed4,gradual_covariate_drift,1,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s2-seed0,gradual_covariate_drift,2,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s2-seed1,gradual_covariate_drift,2,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s2-seed2,gradual_covariate_drift,2,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s2-seed3,gradual_covariate_drift,2,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s2-seed4,gradual_covariate_drift,2,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s3-seed0,gradual_covariate_drift,3,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s3-seed1,gradual_covariate_drift,3,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s3-seed2,gradual_covariate_drift,3,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s3-seed3,gradual_covariate_drift,3,retrain,,True,True,default
+Always-retrain,gradual_covariate_drift-s3-seed4,gradual_covariate_drift,3,retrain,,True,True,default
+Always-retrain,concept_drift-s1-seed0,concept_drift,1,retrain,,True,True,default
+Always-retrain,concept_drift-s1-seed1,concept_drift,1,retrain,,True,True,default
+Always-retrain,concept_drift-s1-seed2,concept_drift,1,retrain,,True,True,default
+Always-retrain,concept_drift-s1-seed3,concept_drift,1,retrain,,True,True,default
+Always-retrain,concept_drift-s1-seed4,concept_drift,1,retrain,,True,True,default
+Always-retrain,concept_drift-s2-seed0,concept_drift,2,retrain,,True,True,default
+Always-retrain,concept_drift-s2-seed1,concept_drift,2,retrain,,True,True,default
+Always-retrain,concept_drift-s2-seed2,concept_drift,2,retrain,,True,True,default
+Always-retrain,concept_drift-s2-seed3,concept_drift,2,retrain,,True,True,default
+Always-retrain,concept_drift-s2-seed4,concept_drift,2,retrain,,True,True,default
+Always-retrain,concept_drift-s3-seed0,concept_drift,3,retrain,,True,True,default
+Always-retrain,concept_drift-s3-seed1,concept_drift,3,retrain,,True,True,default
+Always-retrain,concept_drift-s3-seed2,concept_drift,3,retrain,,True,True,default
+Always-retrain,concept_drift-s3-seed3,concept_drift,3,retrain,,True,True,default
+Always-retrain,concept_drift-s3-seed4,concept_drift,3,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s1-seed0,upstream_pipeline_fault,1,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s1-seed1,upstream_pipeline_fault,1,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s1-seed2,upstream_pipeline_fault,1,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s1-seed3,upstream_pipeline_fault,1,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s1-seed4,upstream_pipeline_fault,1,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s2-seed0,upstream_pipeline_fault,2,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s2-seed1,upstream_pipeline_fault,2,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s2-seed2,upstream_pipeline_fault,2,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s2-seed3,upstream_pipeline_fault,2,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s2-seed4,upstream_pipeline_fault,2,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s3-seed0,upstream_pipeline_fault,3,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s3-seed1,upstream_pipeline_fault,3,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s3-seed2,upstream_pipeline_fault,3,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s3-seed3,upstream_pipeline_fault,3,retrain,,True,True,default
+Always-retrain,upstream_pipeline_fault-s3-seed4,upstream_pipeline_fault,3,retrain,,True,True,default
+Always-retrain,seasonal_variation-s1-seed0,seasonal_variation,1,retrain,,True,True,default
+Always-retrain,seasonal_variation-s1-seed1,seasonal_variation,1,retrain,,True,True,default
+Always-retrain,seasonal_variation-s1-seed2,seasonal_variation,1,retrain,,True,True,default
+Always-retrain,seasonal_variation-s1-seed3,seasonal_variation,1,retrain,,True,True,default
+Always-retrain,seasonal_variation-s1-seed4,seasonal_variation,1,retrain,,True,True,default
+Always-retrain,seasonal_variation-s2-seed0,seasonal_variation,2,retrain,,True,True,default
+Always-retrain,seasonal_variation-s2-seed1,seasonal_variation,2,retrain,,True,True,default
+Always-retrain,seasonal_variation-s2-seed2,seasonal_variation,2,retrain,,True,True,default
+Always-retrain,seasonal_variation-s2-seed3,seasonal_variation,2,retrain,,True,True,default
+Always-retrain,seasonal_variation-s2-seed4,seasonal_variation,2,retrain,,True,True,default
+Always-retrain,seasonal_variation-s3-seed0,seasonal_variation,3,retrain,,True,True,default
+Always-retrain,seasonal_variation-s3-seed1,seasonal_variation,3,retrain,,True,True,default
+Always-retrain,seasonal_variation-s3-seed2,seasonal_variation,3,retrain,,True,True,default
+Always-retrain,seasonal_variation-s3-seed3,seasonal_variation,3,retrain,,True,True,default
+Always-retrain,seasonal_variation-s3-seed4,seasonal_variation,3,retrain,,True,True,default
+Threshold rules,sudden_covariate_drift-s1-seed0,sudden_covariate_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,sudden_covariate_drift-s1-seed1,sudden_covariate_drift,1,suppress,seasonal_variation,True,True,default
+Threshold rules,sudden_covariate_drift-s1-seed2,sudden_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,sudden_covariate_drift-s1-seed3,sudden_covariate_drift,1,suppress,seasonal_variation,True,False,default
+Threshold rules,sudden_covariate_drift-s1-seed4,sudden_covariate_drift,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,sudden_covariate_drift-s2-seed0,sudden_covariate_drift,2,suppress,seasonal_variation,True,False,default
+Threshold rules,sudden_covariate_drift-s2-seed1,sudden_covariate_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,sudden_covariate_drift-s2-seed2,sudden_covariate_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,sudden_covariate_drift-s2-seed3,sudden_covariate_drift,2,rollback,upstream_pipeline_fault,True,True,default
+Threshold rules,sudden_covariate_drift-s2-seed4,sudden_covariate_drift,2,suppress,seasonal_variation,True,False,default
+Threshold rules,sudden_covariate_drift-s3-seed0,sudden_covariate_drift,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,sudden_covariate_drift-s3-seed1,sudden_covariate_drift,3,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,sudden_covariate_drift-s3-seed2,sudden_covariate_drift,3,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,sudden_covariate_drift-s3-seed3,sudden_covariate_drift,3,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,sudden_covariate_drift-s3-seed4,sudden_covariate_drift,3,rollback,upstream_pipeline_fault,True,True,default
+Threshold rules,gradual_covariate_drift-s1-seed0,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s1-seed1,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s1-seed2,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s1-seed3,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,gradual_covariate_drift-s1-seed4,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,gradual_covariate_drift-s2-seed0,gradual_covariate_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s2-seed1,gradual_covariate_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s2-seed2,gradual_covariate_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s2-seed3,gradual_covariate_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,gradual_covariate_drift-s2-seed4,gradual_covariate_drift,2,suppress,seasonal_variation,True,False,default
+Threshold rules,gradual_covariate_drift-s3-seed0,gradual_covariate_drift,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,gradual_covariate_drift-s3-seed1,gradual_covariate_drift,3,suppress,seasonal_variation,True,False,default
+Threshold rules,gradual_covariate_drift-s3-seed2,gradual_covariate_drift,3,suppress,seasonal_variation,True,True,default
+Threshold rules,gradual_covariate_drift-s3-seed3,gradual_covariate_drift,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,gradual_covariate_drift-s3-seed4,gradual_covariate_drift,3,suppress,seasonal_variation,True,True,default
+Threshold rules,concept_drift-s1-seed0,concept_drift,1,suppress,seasonal_variation,True,True,default
+Threshold rules,concept_drift-s1-seed1,concept_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,concept_drift-s1-seed2,concept_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,concept_drift-s1-seed3,concept_drift,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,concept_drift-s1-seed4,concept_drift,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,concept_drift-s2-seed0,concept_drift,2,rollback,upstream_pipeline_fault,True,True,default
+Threshold rules,concept_drift-s2-seed1,concept_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,concept_drift-s2-seed2,concept_drift,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,concept_drift-s2-seed3,concept_drift,2,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,concept_drift-s2-seed4,concept_drift,2,suppress,seasonal_variation,True,True,default
+Threshold rules,concept_drift-s3-seed0,concept_drift,3,rollback,upstream_pipeline_fault,True,True,default
+Threshold rules,concept_drift-s3-seed1,concept_drift,3,suppress,seasonal_variation,True,True,default
+Threshold rules,concept_drift-s3-seed2,concept_drift,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,concept_drift-s3-seed3,concept_drift,3,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,concept_drift-s3-seed4,concept_drift,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,upstream_pipeline_fault-s1-seed0,upstream_pipeline_fault,1,suppress,seasonal_variation,True,True,default
+Threshold rules,upstream_pipeline_fault-s1-seed1,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s1-seed2,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s1-seed3,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s1-seed4,upstream_pipeline_fault,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,upstream_pipeline_fault-s2-seed0,upstream_pipeline_fault,2,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,upstream_pipeline_fault-s2-seed1,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s2-seed2,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s2-seed3,upstream_pipeline_fault,2,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,upstream_pipeline_fault-s2-seed4,upstream_pipeline_fault,2,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,upstream_pipeline_fault-s3-seed0,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s3-seed1,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,upstream_pipeline_fault-s3-seed2,upstream_pipeline_fault,3,suppress,seasonal_variation,True,True,default
+Threshold rules,upstream_pipeline_fault-s3-seed3,upstream_pipeline_fault,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,upstream_pipeline_fault-s3-seed4,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,seasonal_variation-s1-seed0,seasonal_variation,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,seasonal_variation-s1-seed1,seasonal_variation,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,seasonal_variation-s1-seed2,seasonal_variation,1,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,seasonal_variation-s1-seed3,seasonal_variation,1,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,seasonal_variation-s1-seed4,seasonal_variation,1,rollback,upstream_pipeline_fault,True,True,default
+Threshold rules,seasonal_variation-s2-seed0,seasonal_variation,2,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,seasonal_variation-s2-seed1,seasonal_variation,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,seasonal_variation-s2-seed2,seasonal_variation,2,suppress,seasonal_variation,True,False,default
+Threshold rules,seasonal_variation-s2-seed3,seasonal_variation,2,retrain,sudden_covariate_drift,True,False,default
+Threshold rules,seasonal_variation-s2-seed4,seasonal_variation,2,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,seasonal_variation-s3-seed0,seasonal_variation,3,rollback,upstream_pipeline_fault,True,False,default
+Threshold rules,seasonal_variation-s3-seed1,seasonal_variation,3,suppress,seasonal_variation,True,True,default
+Threshold rules,seasonal_variation-s3-seed2,seasonal_variation,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,seasonal_variation-s3-seed3,seasonal_variation,3,retrain,sudden_covariate_drift,True,True,default
+Threshold rules,seasonal_variation-s3-seed4,seasonal_variation,3,retrain,sudden_covariate_drift,True,False,default
+Alert-only,sudden_covariate_drift-s1-seed0,sudden_covariate_drift,1,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s1-seed1,sudden_covariate_drift,1,,,False,False,calibrated
+Alert-only,sudden_covariate_drift-s1-seed2,sudden_covariate_drift,1,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s1-seed3,sudden_covariate_drift,1,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s1-seed4,sudden_covariate_drift,1,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s2-seed0,sudden_covariate_drift,2,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s2-seed1,sudden_covariate_drift,2,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s2-seed2,sudden_covariate_drift,2,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s2-seed3,sudden_covariate_drift,2,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s2-seed4,sudden_covariate_drift,2,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s3-seed0,sudden_covariate_drift,3,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s3-seed1,sudden_covariate_drift,3,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s3-seed2,sudden_covariate_drift,3,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s3-seed3,sudden_covariate_drift,3,,,True,False,calibrated
+Alert-only,sudden_covariate_drift-s3-seed4,sudden_covariate_drift,3,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s1-seed0,gradual_covariate_drift,1,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s1-seed1,gradual_covariate_drift,1,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s1-seed2,gradual_covariate_drift,1,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s1-seed3,gradual_covariate_drift,1,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s1-seed4,gradual_covariate_drift,1,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s2-seed0,gradual_covariate_drift,2,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s2-seed1,gradual_covariate_drift,2,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s2-seed2,gradual_covariate_drift,2,,,False,False,calibrated
+Alert-only,gradual_covariate_drift-s2-seed3,gradual_covariate_drift,2,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s2-seed4,gradual_covariate_drift,2,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s3-seed0,gradual_covariate_drift,3,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s3-seed1,gradual_covariate_drift,3,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s3-seed2,gradual_covariate_drift,3,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s3-seed3,gradual_covariate_drift,3,,,True,False,calibrated
+Alert-only,gradual_covariate_drift-s3-seed4,gradual_covariate_drift,3,,,True,False,calibrated
+Alert-only,concept_drift-s1-seed0,concept_drift,1,,,True,False,calibrated
+Alert-only,concept_drift-s1-seed1,concept_drift,1,,,True,False,calibrated
+Alert-only,concept_drift-s1-seed2,concept_drift,1,,,True,False,calibrated
+Alert-only,concept_drift-s1-seed3,concept_drift,1,,,True,False,calibrated
+Alert-only,concept_drift-s1-seed4,concept_drift,1,,,True,False,calibrated
+Alert-only,concept_drift-s2-seed0,concept_drift,2,,,True,False,calibrated
+Alert-only,concept_drift-s2-seed1,concept_drift,2,,,True,False,calibrated
+Alert-only,concept_drift-s2-seed2,concept_drift,2,,,True,False,calibrated
+Alert-only,concept_drift-s2-seed3,concept_drift,2,,,True,False,calibrated
+Alert-only,concept_drift-s2-seed4,concept_drift,2,,,True,False,calibrated
+Alert-only,concept_drift-s3-seed0,concept_drift,3,,,True,False,calibrated
+Alert-only,concept_drift-s3-seed1,concept_drift,3,,,True,False,calibrated
+Alert-only,concept_drift-s3-seed2,concept_drift,3,,,True,False,calibrated
+Alert-only,concept_drift-s3-seed3,concept_drift,3,,,True,False,calibrated
+Alert-only,concept_drift-s3-seed4,concept_drift,3,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s1-seed0,upstream_pipeline_fault,1,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s1-seed1,upstream_pipeline_fault,1,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s1-seed2,upstream_pipeline_fault,1,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s1-seed3,upstream_pipeline_fault,1,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s1-seed4,upstream_pipeline_fault,1,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s2-seed0,upstream_pipeline_fault,2,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s2-seed1,upstream_pipeline_fault,2,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s2-seed2,upstream_pipeline_fault,2,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s2-seed3,upstream_pipeline_fault,2,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s2-seed4,upstream_pipeline_fault,2,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s3-seed0,upstream_pipeline_fault,3,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s3-seed1,upstream_pipeline_fault,3,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s3-seed2,upstream_pipeline_fault,3,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s3-seed3,upstream_pipeline_fault,3,,,True,False,calibrated
+Alert-only,upstream_pipeline_fault-s3-seed4,upstream_pipeline_fault,3,,,True,False,calibrated
+Alert-only,seasonal_variation-s1-seed0,seasonal_variation,1,,,True,False,calibrated
+Alert-only,seasonal_variation-s1-seed1,seasonal_variation,1,,,True,False,calibrated
+Alert-only,seasonal_variation-s1-seed2,seasonal_variation,1,,,True,False,calibrated
+Alert-only,seasonal_variation-s1-seed3,seasonal_variation,1,,,True,False,calibrated
+Alert-only,seasonal_variation-s1-seed4,seasonal_variation,1,,,True,False,calibrated
+Alert-only,seasonal_variation-s2-seed0,seasonal_variation,2,,,True,False,calibrated
+Alert-only,seasonal_variation-s2-seed1,seasonal_variation,2,,,True,False,calibrated
+Alert-only,seasonal_variation-s2-seed2,seasonal_variation,2,,,True,False,calibrated
+Alert-only,seasonal_variation-s2-seed3,seasonal_variation,2,,,True,False,calibrated
+Alert-only,seasonal_variation-s2-seed4,seasonal_variation,2,,,True,False,calibrated
+Alert-only,seasonal_variation-s3-seed0,seasonal_variation,3,,,True,False,calibrated
+Alert-only,seasonal_variation-s3-seed1,seasonal_variation,3,,,True,False,calibrated
+Alert-only,seasonal_variation-s3-seed2,seasonal_variation,3,,,True,False,calibrated
+Alert-only,seasonal_variation-s3-seed3,seasonal_variation,3,,,True,False,calibrated
+Alert-only,seasonal_variation-s3-seed4,seasonal_variation,3,,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s1-seed0,sudden_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s1-seed1,sudden_covariate_drift,1,,,False,False,calibrated
+Always-retrain,sudden_covariate_drift-s1-seed2,sudden_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s1-seed3,sudden_covariate_drift,1,retrain,,True,True,calibrated
+Always-retrain,sudden_covariate_drift-s1-seed4,sudden_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s2-seed0,sudden_covariate_drift,2,retrain,,True,True,calibrated
+Always-retrain,sudden_covariate_drift-s2-seed1,sudden_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s2-seed2,sudden_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s2-seed3,sudden_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s2-seed4,sudden_covariate_drift,2,retrain,,True,True,calibrated
+Always-retrain,sudden_covariate_drift-s3-seed0,sudden_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,sudden_covariate_drift-s3-seed1,sudden_covariate_drift,3,retrain,,True,False,calibrated
+Always-retrain,sudden_covariate_drift-s3-seed2,sudden_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,sudden_covariate_drift-s3-seed3,sudden_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,sudden_covariate_drift-s3-seed4,sudden_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,gradual_covariate_drift-s1-seed0,gradual_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s1-seed1,gradual_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s1-seed2,gradual_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s1-seed3,gradual_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s1-seed4,gradual_covariate_drift,1,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s2-seed0,gradual_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s2-seed1,gradual_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s2-seed2,gradual_covariate_drift,2,,,False,False,calibrated
+Always-retrain,gradual_covariate_drift-s2-seed3,gradual_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s2-seed4,gradual_covariate_drift,2,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s3-seed0,gradual_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,gradual_covariate_drift-s3-seed1,gradual_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,gradual_covariate_drift-s3-seed2,gradual_covariate_drift,3,retrain,,True,True,calibrated
+Always-retrain,gradual_covariate_drift-s3-seed3,gradual_covariate_drift,3,retrain,,True,False,calibrated
+Always-retrain,gradual_covariate_drift-s3-seed4,gradual_covariate_drift,3,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s1-seed0,concept_drift,1,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s1-seed1,concept_drift,1,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s1-seed2,concept_drift,1,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s1-seed3,concept_drift,1,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s1-seed4,concept_drift,1,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s2-seed0,concept_drift,2,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s2-seed1,concept_drift,2,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s2-seed2,concept_drift,2,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s2-seed3,concept_drift,2,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s2-seed4,concept_drift,2,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s3-seed0,concept_drift,3,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s3-seed1,concept_drift,3,retrain,,True,False,calibrated
+Always-retrain,concept_drift-s3-seed2,concept_drift,3,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s3-seed3,concept_drift,3,retrain,,True,True,calibrated
+Always-retrain,concept_drift-s3-seed4,concept_drift,3,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s1-seed0,upstream_pipeline_fault,1,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s1-seed1,upstream_pipeline_fault,1,retrain,,True,True,calibrated
+Always-retrain,upstream_pipeline_fault-s1-seed2,upstream_pipeline_fault,1,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s1-seed3,upstream_pipeline_fault,1,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s1-seed4,upstream_pipeline_fault,1,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s2-seed0,upstream_pipeline_fault,2,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s2-seed1,upstream_pipeline_fault,2,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s2-seed2,upstream_pipeline_fault,2,retrain,,True,True,calibrated
+Always-retrain,upstream_pipeline_fault-s2-seed3,upstream_pipeline_fault,2,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s2-seed4,upstream_pipeline_fault,2,retrain,,True,True,calibrated
+Always-retrain,upstream_pipeline_fault-s3-seed0,upstream_pipeline_fault,3,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s3-seed1,upstream_pipeline_fault,3,retrain,,True,True,calibrated
+Always-retrain,upstream_pipeline_fault-s3-seed2,upstream_pipeline_fault,3,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s3-seed3,upstream_pipeline_fault,3,retrain,,True,False,calibrated
+Always-retrain,upstream_pipeline_fault-s3-seed4,upstream_pipeline_fault,3,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s1-seed0,seasonal_variation,1,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s1-seed1,seasonal_variation,1,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s1-seed2,seasonal_variation,1,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s1-seed3,seasonal_variation,1,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s1-seed4,seasonal_variation,1,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s2-seed0,seasonal_variation,2,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s2-seed1,seasonal_variation,2,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s2-seed2,seasonal_variation,2,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s2-seed3,seasonal_variation,2,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s2-seed4,seasonal_variation,2,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s3-seed0,seasonal_variation,3,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s3-seed1,seasonal_variation,3,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s3-seed2,seasonal_variation,3,retrain,,True,False,calibrated
+Always-retrain,seasonal_variation-s3-seed3,seasonal_variation,3,retrain,,True,True,calibrated
+Always-retrain,seasonal_variation-s3-seed4,seasonal_variation,3,retrain,,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s1-seed0,sudden_covariate_drift,1,,,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s1-seed1,sudden_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s1-seed2,sudden_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s1-seed3,sudden_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s1-seed4,sudden_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s2-seed0,sudden_covariate_drift,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s2-seed1,sudden_covariate_drift,2,suppress,seasonal_variation,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s2-seed2,sudden_covariate_drift,2,,,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s2-seed3,sudden_covariate_drift,2,rollback,upstream_pipeline_fault,True,True,calibrated
+Threshold rules,sudden_covariate_drift-s2-seed4,sudden_covariate_drift,2,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s3-seed0,sudden_covariate_drift,3,suppress,seasonal_variation,True,True,calibrated
+Threshold rules,sudden_covariate_drift-s3-seed1,sudden_covariate_drift,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s3-seed2,sudden_covariate_drift,3,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s3-seed3,sudden_covariate_drift,3,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,sudden_covariate_drift-s3-seed4,sudden_covariate_drift,3,rollback,upstream_pipeline_fault,True,True,calibrated
+Threshold rules,gradual_covariate_drift-s1-seed0,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s1-seed1,gradual_covariate_drift,1,,,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s1-seed2,gradual_covariate_drift,1,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s1-seed3,gradual_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s1-seed4,gradual_covariate_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s2-seed0,gradual_covariate_drift,2,,,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s2-seed1,gradual_covariate_drift,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s2-seed2,gradual_covariate_drift,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s2-seed3,gradual_covariate_drift,2,,,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s2-seed4,gradual_covariate_drift,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s3-seed0,gradual_covariate_drift,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s3-seed1,gradual_covariate_drift,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s3-seed2,gradual_covariate_drift,3,suppress,seasonal_variation,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s3-seed3,gradual_covariate_drift,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,gradual_covariate_drift-s3-seed4,gradual_covariate_drift,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,concept_drift-s1-seed0,concept_drift,1,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,concept_drift-s1-seed1,concept_drift,1,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,concept_drift-s1-seed2,concept_drift,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,concept_drift-s1-seed3,concept_drift,1,,,True,False,calibrated
+Threshold rules,concept_drift-s1-seed4,concept_drift,1,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,concept_drift-s2-seed0,concept_drift,2,rollback,upstream_pipeline_fault,True,True,calibrated
+Threshold rules,concept_drift-s2-seed1,concept_drift,2,retrain,concept_drift,True,False,calibrated
+Threshold rules,concept_drift-s2-seed2,concept_drift,2,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,concept_drift-s2-seed3,concept_drift,2,,,True,False,calibrated
+Threshold rules,concept_drift-s2-seed4,concept_drift,2,,,True,False,calibrated
+Threshold rules,concept_drift-s3-seed0,concept_drift,3,rollback,upstream_pipeline_fault,True,True,calibrated
+Threshold rules,concept_drift-s3-seed1,concept_drift,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,concept_drift-s3-seed2,concept_drift,3,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,concept_drift-s3-seed3,concept_drift,3,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,concept_drift-s3-seed4,concept_drift,3,,,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s1-seed0,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s1-seed1,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s1-seed2,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s1-seed3,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s1-seed4,upstream_pipeline_fault,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s2-seed0,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s2-seed1,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s2-seed2,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s2-seed3,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s2-seed4,upstream_pipeline_fault,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s3-seed0,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s3-seed1,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s3-seed2,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s3-seed3,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,upstream_pipeline_fault-s3-seed4,upstream_pipeline_fault,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,seasonal_variation-s1-seed0,seasonal_variation,1,,,True,False,calibrated
+Threshold rules,seasonal_variation-s1-seed1,seasonal_variation,1,,,True,False,calibrated
+Threshold rules,seasonal_variation-s1-seed2,seasonal_variation,1,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,seasonal_variation-s1-seed3,seasonal_variation,1,,,True,False,calibrated
+Threshold rules,seasonal_variation-s1-seed4,seasonal_variation,1,rollback,upstream_pipeline_fault,True,True,calibrated
+Threshold rules,seasonal_variation-s2-seed0,seasonal_variation,2,suppress,seasonal_variation,True,False,calibrated
+Threshold rules,seasonal_variation-s2-seed1,seasonal_variation,2,retrain,sudden_covariate_drift,True,False,calibrated
+Threshold rules,seasonal_variation-s2-seed2,seasonal_variation,2,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,seasonal_variation-s2-seed3,seasonal_variation,2,,,True,False,calibrated
+Threshold rules,seasonal_variation-s2-seed4,seasonal_variation,2,suppress,seasonal_variation,True,True,calibrated
+Threshold rules,seasonal_variation-s3-seed0,seasonal_variation,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,seasonal_variation-s3-seed1,seasonal_variation,3,suppress,seasonal_variation,True,True,calibrated
+Threshold rules,seasonal_variation-s3-seed2,seasonal_variation,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,seasonal_variation-s3-seed3,seasonal_variation,3,rollback,upstream_pipeline_fault,True,False,calibrated
+Threshold rules,seasonal_variation-s3-seed4,seasonal_variation,3,rollback,upstream_pipeline_fault,True,False,calibrated
