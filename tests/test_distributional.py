@@ -87,3 +87,11 @@ def test_bundle_collects_all_signals():
     assert set(signals.psi) == {"x"}
     assert set(signals.chi2_pvalue) == {"c"}
     assert signals.adwin_drift is True
+
+
+def test_all_null_feature_is_left_out_and_survives_json():
+    ref = [{"features": {"x": float(i), "c": i % 3}} for i in range(100)]
+    cur = [{"features": {"x": None, "c": None}} for _ in range(100)]
+    signals = distributional_signals(ref, cur, ["x"], ["c"])
+    assert signals.psi == {} and signals.ks_pvalue == {} and signals.chi2_pvalue == {}
+    assert type(signals).model_validate_json(signals.model_dump_json()) == signals

@@ -26,7 +26,7 @@ def test_sudden_covariate_shifts_from_onset_by_severity_times_pre_onset_std():
     # Pre-onset values [1,2,3,4]: mean 2.5, population std sqrt(1.25).
     # Post-onset values are huge, so a whole-dataset std would give a very different shift.
     records = _records([1, 2, 3, 4, 1000, 1000])
-    expected_shift = 2 * math.sqrt(1.25)
+    expected_shift = 1.0 * math.sqrt(1.25)
 
     result = inj.sudden_covariate(records, feature="x", onset_index=4, severity=2)
 
@@ -58,7 +58,7 @@ def test_sudden_covariate_rejects_constant_pre_onset_feature():
 
 
 def test_gradual_covariate_ramps_up_to_the_sudden_shift():
-    records = _records([1, 2, 3, 4] + [4.0] * 300)
+    records = _records([1, 2, 3, 4] + [4.0] * inj.RAMP_RECORDS)
     sudden = inj.sudden_covariate(records, "x", onset_index=4, severity=1)
     gradual = inj.gradual_covariate(records, "x", onset_index=4, severity=1)
 
@@ -109,7 +109,7 @@ def test_pipeline_fault_scale_multiplies_values():
 
     result = inj.pipeline_fault(records, "x", onset_index=3, severity=1, kind="scale")
 
-    assert [r["features"]["x"] for r in result.records] == [1.0, 2.0, 3.0, 400.0, 500.0]
+    assert [r["features"]["x"] for r in result.records] == [1.0, 2.0, 3.0, 40.0, 50.0]
 
 
 def test_pipeline_fault_freeze_holds_value_at_onset():
@@ -136,15 +136,24 @@ def test_pipeline_fault_swap_requires_swap_with():
 
 
 def test_seasonal_wave_returns_to_normal_after_one_period():
-    records = _records([1, 2, 3, 4] + [4.0] * 200)
+    records = _records([1, 2, 3, 4] + [4.0] * (inj.SEASON_PERIOD + 100))
 
     result = inj.seasonal(records, "x", onset_index=4, severity=2)
 
     assert result.cause is Cause.SEASONAL
-    peak = result.records[4 + inj.SEASON_PERIOD // 4]["features"]["x"] - 4.0
+    peak = result.records[4 + inj.SEASON_PERIOD // 2]["features"]["x"] - 4.0
     assert peak > 0
     assert result.records[4 + inj.SEASON_PERIOD]["features"]["x"] == pytest.approx(4.0)
     assert all(r["features"]["x"] == 4.0 for r in result.records[4 + inj.SEASON_PERIOD :])
+
+
+def test_concept_drift_can_be_limited_to_a_feature_region():
+    records = _records([1, 2, 3, 4] * 50)
+
+    result = inj.concept_drift(records, onset_index=100, severity=3, seed=0, region_feature="x")
+
+    flipped = {r["features"]["x"] for r in result.records if r["label"] == 1}
+    assert flipped and flipped <= {3.0, 4.0}
 
 
 def test_ground_truth_answer_key_uses_shared_class():

@@ -16,11 +16,6 @@ from typing import Any
 
 from autonoma.core.bundle import IntegritySignals
 
-# A unit violation is a value far outside the reference range, not just a bit
-# outside it. Normal covariate drift moves values a few spans at most, so it
-# does not trigger this; a units bug (x10, x100, ...) does.
-UNIT_MARGIN_SPANS = 10.0
-
 
 def _values(records: Sequence[Mapping[str, Any]], feature: str) -> list[Any]:
     return [record["features"].get(feature) for record in records]
@@ -42,17 +37,13 @@ def _cardinality_ratio(reference: Sequence[Any], current: Sequence[Any]) -> floa
 
 
 def _range_violation_rate(reference: Sequence[Any], current: Sequence[Any]) -> float:
-    """Fraction of current numeric values far outside the reference min-max."""
+    """Fraction of current numeric values outside the reference min-max."""
     ref_nums = [v for v in reference if isinstance(v, (int, float))]
     cur_nums = [v for v in current if isinstance(v, (int, float))]
     if not ref_nums or not cur_nums:
         return 0.0
     low, high = min(ref_nums), max(ref_nums)
-    margin = UNIT_MARGIN_SPANS * (high - low)
-    if margin == 0:
-        margin = UNIT_MARGIN_SPANS * max(abs(low), 1.0)
-    lo, hi = low - margin, high + margin
-    outside = sum(1 for v in cur_nums if v < lo or v > hi)
+    outside = sum(1 for v in cur_nums if v < low or v > high)
     return outside / len(cur_nums)
 
 

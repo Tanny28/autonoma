@@ -14,21 +14,22 @@ import math
 import random
 from collections.abc import Callable
 from dataclasses import dataclass
+from statistics import median
 from typing import Any
 
 from autonoma.core.bundle import GroundTruth
 from autonoma.core.taxonomy import Cause
 
 #: Severity -> shift size in pre-onset standard deviations (sudden, gradual, seasonal).
-SHIFT_BY_SEVERITY = {1: 1.0, 2: 2.0, 3: 3.0}
-#: Severity -> records taken to ramp up to the full shift (gradual covariate drift).
-RAMP_BY_SEVERITY = {1: 200, 2: 100, 3: 50}
+SHIFT_BY_SEVERITY = {1: 0.5, 2: 1.0, 3: 2.0}
+#: Records taken to ramp up to the full shift (gradual covariate drift).
+RAMP_RECORDS = 1500
 #: Severity -> fraction of post-onset labels flipped (concept drift).
-FLIP_RATE_BY_SEVERITY = {1: 0.2, 2: 0.4, 3: 0.6}
+FLIP_RATE_BY_SEVERITY = {1: 0.3, 2: 0.6, 3: 0.9}
 #: Severity -> fraction of post-onset values replaced by null (pipeline fault, kind "null").
-NULL_RATE_BY_SEVERITY = {1: 0.1, 2: 0.3, 3: 0.5}
-#: Length of one seasonal wave, in records. The wave returns to normal after one period.
-SEASON_PERIOD = 100
+NULL_RATE_BY_SEVERITY = {1: 0.1, 2: 0.2, 3: 0.3}
+#: Length of the seasonal swing (a half sine), in records. Normal again afterwards.
+SEASON_PERIOD = 1500
 #: The pipeline faults `pipeline_fault` can inject.
 PIPELINE_FAULTS = ("null", "scale", "freeze", "swap")
 
@@ -65,10 +66,9 @@ def gradual_covariate(
 ) -> InjectionResult:
     """Same final shift as `sudden_covariate`, but ramped up linearly over N records."""
     full_shift = _shift_size(records, feature, onset_index, severity)
-    ramp = RAMP_BY_SEVERITY[_check_severity(severity)]
 
     def shift(index: int) -> float:
-        return full_shift * min(1.0, (index - onset_index + 1) / ramp)
+        return full_shift * min(1.0, (index - onset_index + 1) / RAMP_RECORDS)
 
     return InjectionResult(
         records=_apply_shift(records, feature, onset_index, shift),
@@ -83,16 +83,31 @@ def concept_drift(
     severity: int,
     seed: int = 0,
     label_key: str = "label",
+    region_feature: str | None = None,
 ) -> InjectionResult:
     """Flip the label on a random share of post-onset records. Features are untouched.
+
+    With `region_feature`, only records whose value is above that feature's pre-onset
+    median can flip, so the change is local to part of the input space.
 
     Assumes a binary 0/1 label.
     """
     rate = FLIP_RATE_BY_SEVERITY[_check_severity(severity)]
     rng = random.Random(seed)
     modified = _copy_records(records)
+    threshold = None
+    if region_feature is not None:
+        threshold = median(
+            record["features"][region_feature]
+            for record in records[:onset_index]
+            if isinstance(record["features"].get(region_feature), (int, float))
+        )
 
     for index, record in enumerate(modified):
+        if threshold is not None:
+            value = record["features"].get(region_feature)
+            if not isinstance(value, (int, float)) or value <= threshold:
+                continue
         if index >= onset_index and rng.random() < rate:
             record[label_key] = 1 - record[label_key]
 
@@ -117,7 +132,7 @@ def pipeline_fault(
 
     `kind` is one of PIPELINE_FAULTS. If omitted, the seed picks one.
     - "null":   replace some values with None (rate depends on severity)
-    - "scale":  multiply values by 10**(severity+1), e.g. a units bug
+    - "scale":  multiply values by 10**severity, e.g. a units bug
     - "freeze": hold the feature at its value at onset (a stuck constant)
     - "swap":   swap `feature` with `swap_with` (a column-order bug)
     """
@@ -142,7 +157,7 @@ def pipeline_fault(
                 record["features"][feature] = None
 
     elif kind == "scale":
-        factor = 10 ** (sev + 1)
+        factor = 10**sev
         for record in after_onset:
             value = record["features"].get(feature)
             if isinstance(value, (int, float)):
@@ -172,7 +187,7 @@ def seasonal(
     severity: int,
     seed: int = 0,
 ) -> InjectionResult:
-    """Add a sine wave for one period from onset, then return to normal.
+    """Add a half sine (rise and fall) for one period from onset, then return to normal.
 
     Deterministic, so `seed` is accepted only to keep the signature uniform.
     """
@@ -182,7 +197,7 @@ def seasonal(
         elapsed = index - onset_index
         if elapsed >= SEASON_PERIOD:
             return 0.0
-        return amplitude * math.sin(2 * math.pi * elapsed / SEASON_PERIOD)
+        return amplitude * math.sin(math.pi * elapsed / SEASON_PERIOD)
 
     return InjectionResult(
         records=_apply_shift(records, feature, onset_index, shift),
