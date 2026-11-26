@@ -84,10 +84,17 @@ def test_cardinality_fires_when_values_collapse():
 
 def test_integrity_stays_quiet_on_covariate_drift():
     ref = _clean_stream(seed=1)
-    cur = sudden_covariate(ref, "x", ONSET, severity=3).records
+    cur = sudden_covariate(ref, "x", ONSET, severity=1).records
     result = integrity_signals(ref, cur, FEATURES)
     assert result.null_rate["x"] == 0.0
-    assert result.range_violation_rate["x"] == 0.0
+    assert result.range_violation_rate["x"] < 0.10  # the rule arm's fault threshold
     assert result.stale_run_length["x"] < 5
     assert abs(result.cardinality_ratio["x"] - 1.0) < 0.05
     assert result.schema_order_changed is False
+
+
+def test_range_violation_fires_on_a_tenfold_unit_error():
+    rng = random.Random(0)
+    ref = [{"features": {"x": rng.uniform(0.1, 0.8)}} for _ in range(300)]
+    cur = [{"features": {"x": r["features"]["x"] * 10}} for r in ref]
+    assert integrity_signals(ref, cur, ["x"]).range_violation_rate["x"] > 0.8

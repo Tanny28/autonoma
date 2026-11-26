@@ -105,16 +105,24 @@ def distributional_signals(
     categorical_features: Sequence[str] = (),
     prediction_stream: Sequence[float] = (),
 ) -> DistributionalSignals:
-    """Compute all distributional signals for one monitoring window."""
+    """Compute all distributional signals for one monitoring window.
+
+    A feature with no usable values (for example, entirely null) is left out: NaN does
+    not survive the JSON round trip, and the integrity family reports the nulls.
+    """
     ks_stat: dict[str, float] = {}
     ks_p: dict[str, float] = {}
     psi_by_feature: dict[str, float] = {}
     for feature in numeric_features:
+        if not _numeric(reference, feature) or not _numeric(current, feature):
+            continue
         ks_stat[feature], ks_p[feature] = ks_test(reference, current, feature)
         psi_by_feature[feature] = psi(reference, current, feature)
 
     chi2_by_feature = {
-        feature: chi2_pvalue(reference, current, feature) for feature in categorical_features
+        feature: chi2_pvalue(reference, current, feature)
+        for feature in categorical_features
+        if _categorical(reference, feature) and _categorical(current, feature)
     }
 
     return DistributionalSignals(
