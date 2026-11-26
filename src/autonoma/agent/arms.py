@@ -33,6 +33,11 @@ class Decision(BaseModel):
     )
     confidence: float | None = Field(default=None, ge=0.0, le=1.0)
     justification: str = ""
+    decisive_signal: str | None = Field(
+        default=None,
+        description='Signal the arm says drove the decision, e.g. "integrity.null_rate". '
+        "Used by the explanation-faithfulness check.",
+    )
 
 
 Arm = Callable[[SignalBundle], Decision]
