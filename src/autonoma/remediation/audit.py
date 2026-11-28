@@ -1,37 +1,30 @@
+
 """Decision audit logging for remediation (#29)."""
 
-from sqlalchemy import (
-    Column,
-    DateTime,
-    Float,
-    Integer,
-    MetaData,
-    String,
-    Table,
-    Text,
-    create_engine,
-    func,
-    insert,
-)
+import sqlalchemy as sa
 
 from autonoma.agent.arms import Decision
 from autonoma.core.config import settings
 from autonoma.remediation.executor import Outcome
 
 
-metadata = MetaData()
+metadata = sa.MetaData()
 
-decision_log = Table(
+decision_log = sa.Table(
     "decision_log",
     metadata,
-    Column("id", Integer, primary_key=True, autoincrement=True),
-    Column("timestamp", DateTime(timezone=True), server_default=func.now()),
-    Column("episode", String, nullable=False),
-    Column("diagnosed_cause", String, nullable=True),
-    Column("confidence", Float, nullable=True),
-    Column("action", String, nullable=True),
-    Column("justification", Text, nullable=False),
-    Column("outcome", Text, nullable=False),
+    sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
+    sa.Column(
+        "timestamp",
+        sa.DateTime(timezone=True),
+        server_default=sa.func.now(),
+    ),
+    sa.Column("episode", sa.String, nullable=False),
+    sa.Column("diagnosed_cause", sa.String, nullable=True),
+    sa.Column("confidence", sa.Float, nullable=True),
+    sa.Column("action", sa.String, nullable=True),
+    sa.Column("justification", sa.Text, nullable=False),
+    sa.Column("outcome", sa.Text, nullable=False),
 )
 
 
@@ -39,7 +32,7 @@ class AuditLogger:
     """Store remediation decisions and their execution outcomes."""
 
     def __init__(self, database_url: str | None = None) -> None:
-        self.engine = create_engine(database_url or settings.database_url)
+        self.engine = sa.create_engine(database_url or settings.database_url)
         metadata.create_all(self.engine)
 
     def record(
@@ -64,4 +57,4 @@ class AuditLogger:
         }
 
         with self.engine.begin() as connection:
-            connection.execute(insert(decision_log).values(**values))
+            connection.execute(sa.insert(decision_log).values(**values))
