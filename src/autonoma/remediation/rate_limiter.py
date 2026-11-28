@@ -5,7 +5,7 @@ from collections.abc import Callable
 from time import monotonic
 
 from autonoma.core.taxonomy import Action
-
+from autonoma.core.config import settings
 
 MODEL_CHANGING_ACTIONS = frozenset(
     {
@@ -19,11 +19,14 @@ MODEL_CHANGING_ACTIONS = frozenset(
 class RateLimiter:
     """Prevent repeated model-changing actions within a cooldown period."""
 
-    def __init__(
+       def __init__(
         self,
-        cooldown_seconds: float = 300.0,
+        cooldown_seconds: float | None = None,
         clock: Callable[[], float] = monotonic,
     ) -> None:
+        if cooldown_seconds is None:
+            cooldown_seconds = settings.remediation_cooldown_seconds
+
         if cooldown_seconds < 0:
             raise ValueError("cooldown_seconds cannot be negative")
 
