@@ -1,4 +1,3 @@
-
 """Decision audit logging for remediation (#29)."""
 
 from sqlalchemy import (
