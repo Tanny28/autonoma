@@ -19,7 +19,7 @@ MODEL_CHANGING_ACTIONS = frozenset(
 class RateLimiter:
     """Prevent repeated model-changing actions within a cooldown period."""
 
-       def __init__(
+    def __init__(
         self,
         cooldown_seconds: float | None = None,
         clock: Callable[[], float] = monotonic,
