@@ -4,8 +4,9 @@
 from collections.abc import Callable
 from time import monotonic
 
-from autonoma.core.taxonomy import Action
 from autonoma.core.config import settings
+from autonoma.core.taxonomy import Action
+
 
 MODEL_CHANGING_ACTIONS = frozenset(
     {
