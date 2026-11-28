@@ -13,10 +13,10 @@ CREATE TABLE IF NOT EXISTS decision_log (
     id BIGSERIAL PRIMARY KEY,
     timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     episode TEXT NOT NULL,
-    diagnosed_cause TEXT NOT NULL,
-    confidence DOUBLE PRECISION NOT NULL
+    diagnosed_cause TEXT,
+    confidence DOUBLE PRECISION 
         CHECK (confidence >= 0.0 AND confidence <= 1.0),
-    action TEXT NOT NULL,
+    action TEXT,
     justification TEXT NOT NULL,
     outcome TEXT
 );
