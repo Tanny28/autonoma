@@ -22,6 +22,7 @@ from autonoma.core.taxonomy import Action
 class Status(StrEnum):
     APPLIED = "applied"
     REJECTED = "rejected"  # candidate failed the validation gate
+    RATE_LIMITED = "rate_limited"
     AWAITING_APPROVAL = "awaiting_approval"
     ESCALATED = "escalated"
     NO_ACTION = "no_action"
